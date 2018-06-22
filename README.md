@@ -1,3 +1,3 @@
-# ndifix.github.io
+# welcome to ndifix's page
 
-<a href=home.html> about me </a>
+*about me*  <https://ndifix.github.io/home.html>
