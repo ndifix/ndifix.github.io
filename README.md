@@ -1,3 +1,3 @@
 # welcome to ndifix's page
 
-*my carrer…?*  <https://ndifix.github.io/home.html>
+*自己紹介のようなもの*  <https://ndifix.github.io/home.html>
