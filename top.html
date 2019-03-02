@@ -10,43 +10,53 @@
 			border-width: 1px 1px 0px 1px;
 			border-style: solid;
 			border-color: black;
-			border-radius: 0.75em 0.75em 0px 0px;
-			padding: 0.75em 1em;
+			border-radius: 0.5em 0.5em 0px 0px;
+			padding: 0.7em 1em;
 			font-weight: bold;
 			color: black;
-			background-color: #4de0e0; }
+			background-color: #b8e0e6; }
 		.tab:hover {
 			color: green;
 			background-color: #ccffcc; 
 			cursor: pointer; } 
 		input:checked + .tab {
 			color: red;
-			background-color: #ffffcc;
+			background-color: #dec8da;
 			z-index: 1;
 			position: relative; }
-		.tabArea input{ display: none; }
+		#tabArea input{
+			display: none;
+			float: left;
+			width: 63%;	}
 		.tabBody{
 			display: none;			
 			border: 1px solid black;
 			padding: 1em;
-			background-color: #ffffcc;
+			background-color: #dec8da;
 			margin-top: -2px;
-			position: relative; }
+			width: 63%;	}
+		.tabBody iframe{ width: 100%; height: 100vh; }
 		#tabNews:checked ~ #bodyNews { display: block; }
 		#tabIntro:checked ~ #bodyIntro { display: block; }
-		#tabRepo:checked ~ #bodyRepo { display: block; } </style>
+		#tabRepo:checked ~ #bodyRepo { display: block; }
+		#tweetArea{
+			float: right;
+			width: /*172px*/30%;
+			height: 0px;	}	</style>
 </head>
 <body>
 	<img src="head pic.jpg" pic.JPG" width="100%">
-	<p>ndifix <a href="https://twitter.com/ndifix">@ndifix</a>の部屋です。</p>
-
-	<div class="tabArea" >
+	<p>ndifix <a href="https://twitter.com/ndifix" target="_blank">@ndifix</a>の部屋です。</p>
+	<div id="tweetArea"><a class="twitter-timeline" href="https://twitter.com/ndifix?ref_src=twsrc%5Etfw">Tweets by ndifix</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+	<div id="tabArea">
 		<input type="radio" name="toptab" id="tabNews" checked><label for="tabNews" class="tab">News</label>
 		<input type="radio" name="toptab" id="tabIntro"><label for="tabIntro" class="tab">Intro</label>
 		<input type="radio" name="toptab" id="tabRepo"><label for="tabRepo" class="tab">Repository</label>
 			
-		<div class="tabBody" id="bodyNews"><iframe src="topTab/News.html" width="100%"></iframe></div>
+		<div class="tabBody" id="bodyNews"><iframe src="topTab/News.html"></iframe></div>
 		<div class="tabBody" id="bodyIntro"><iframe src="topTab/Introduce.html"></iframe></div>
-		<div class="tabBody" id="bodyRepo">	これはRepository	</div>	</div>
+		<div class="tabBody" id="bodyRepo"><iframe src="topTab/Repository.html"></iframe></div>	</div>
+
+		
 </body>
 </html>
