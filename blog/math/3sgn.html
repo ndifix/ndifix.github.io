@@ -4,19 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            TeX: { equationNumbers: { autoNumber: "AMS" }},
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                processEscapes: true
-            },
-            "HTML-CSS": { matchFontHeight: false },
-            displayAlign: "left",
-            displayIndent: "2em"
-        });
-    </script>
     <title>３符号を持つ数</title>
 </head>
 <body>
@@ -32,30 +19,32 @@
     <p>
         まずゴールをきちんと書きます。<br>
         <ul>
-            <li>集合$\mathbb{T}$の元<b>a</b>,<b>b</b>について常に和と積が定義されている</li>
+            <li>集合<img src="https://latex.codecogs.com/gif.latex?\mathbb{T}">の元<b>a</b>,<b>b</b>について常に和と積が定義されている</li>
             <li><b>a</b>,<b>b</b>には正負が定義されている</li>
             <li>正と正の和/積は正、負と負の和/積は負</li>
         </ul>
-        これを満たす集合$\mathbb{T}$を定義することを目標とします。
+        これを満たす集合<img src="https://latex.codecogs.com/gif.latex?\mathbb{T}">を定義することを目標とします。
     </p>
     <h1>構成</h1>
-    <p>$\mathbb{T}$を作ります。</p>
+    <p><img src="https://latex.codecogs.com/gif.latex?\mathbb{T}">を作ります。</p>
         <h2>説明</h2>
         <p>アイデアを軽く説明します。そのあとに定義を述べます。</p>
         <p>正×正=正, 負×負=負　と決めるのでした。<br>
             ならば正×負=?? という問題が発生してきます。<br>
             なぜかというと、ゴールの３つ目の項目を見てもらうとわかる通り、和と積に関して正と負は対称的だからです。もし正×負=正または正×負=負だと決めてしまうとこの対称性が崩れてしまいます。(この対称性を無視して構成することもできるでしょうけど私が嬉しくなかったので対称性は維持します)<br>
-            ここで、$\mathbb{T}$を構成するうえで肝となったアイデアの登場です。<br>
+            ここで、<img src="https://latex.codecogs.com/gif.latex?\mathbb{T}">を構成するうえで肝となったアイデアの登場です。<br>
             <b>符号は正と負だけではなくもう一つ用意しよう。</b>　たったこれだけです。シンプルですね。<br>
             ３つの符号は対称的になるように定義したいのでじゃんけんのグー・チョキ・パーに合わせてそれぞれ符号を g, c, p としておきます(決してダサくないです)<br>
             具体的には<br>
             $g×g=g$, $c×c=c$, $p×p=p$<br>
             $g×c=p$, $c×p=g$, $p×g=c$<br>
-            となるように定めるわけです。そろそろわかりにくくなってきたので定義をしていきます。
+            となるように定めるわけです。実数の演算についてこれと同じ書き方をするならば<br>
+            $+×+=+$, $-×-=-$, $+×-=-$<br>
+            そろそろわかりにくくなってきたので定義をしていきます。
         </p>
         <h2>定義</h2>
         <p>
-            ・$\mathbb{T}$の任意の元<b>a</b>は次の条件を満たし、またこれを満たすものはすべて$\mathbb{T}$の元である。<br>
+            ・<img src="https://latex.codecogs.com/gif.latex?\mathbb{T}">の任意の元<b>a</b>は次の条件を満たし、またこれを満たすものはすべて<img src="https://latex.codecogs.com/gif.latex?\mathbb{T}">の元である。<br>
             <blockquote>
             すなわち、<b>a</b> $\in \mathbb{R}^3 \land \mathbb{R} \ni \exists x \geq 0, 
             \bf{a} = 
@@ -65,11 +54,13 @@
             </blockquote>
         </p>
         <p>
-            ・次に、$\mathbb{T}$の任意の元<b>a</b>,<b>b</b>は次の演算を満たすとする。<br>
+            ・次に、<img src="https://latex.codecogs.com/gif.latex?\mathbb{T}">の任意の元<b>a</b>,<b>b</b>は次の演算を満たすとする。<br>
             <blockquote>
             すなわち、$\bf{a}=\left(\begin{array}{c}x \\ y \\ z \end{array}\right)$,$\bf{b}=\left(\begin{array}{c}p \\ q \\ r \end{array}\right)$ と表せるとき、<br>
-            $\bf{a}+\bf{b} = \{ \left( 
-                \begin{array}{c} x+p \\ y+q \\ z+r \end{array}\right) \ \left( x*p \neq 0  \ or \ y*q \neq 0 \ or \ z*r \neq 0 \right) \\
+            $\bf{a}+\bf{b} = \\
+                \{
+                    \left(\begin{array}{c} x+p \\ y+q \\ z+r \end{array}\right) \ \left( x*p \neq 0  \ or \ y*q \neq 0 \ or \ z*r \neq 0 \right) \\
+                    \left(\begin{array}{c} max\left(x-p,0\right) \end{array}\right)
             \} $
             </blockquote>
         </p>
