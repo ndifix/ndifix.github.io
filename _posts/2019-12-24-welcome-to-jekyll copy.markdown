@@ -2,8 +2,8 @@
 layout: post
 title:  "Wadg!"
 date:   2019-11-24 01:26:41 +0900
-categories: jekyll update
 author: ndifix
+categories: Blog
 ---
 
 Jekyll requires blog post files to be named according to the following format:
