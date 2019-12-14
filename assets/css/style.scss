@@ -1,0 +1,27 @@
+--- 
+
+--- 
+.head{
+  height: 140px;
+  background-color: white;
+}
+.home-btn{
+  vertical-align: middle;
+  height: 90px;
+}
+.navi{
+  float: right;
+  margin-left: 20px;
+  margin-right: 40px;
+  color: rgb(126, 114, 114);
+  font-size: 150%;
+}
+.navi:hover{
+  color: blue;
+}
+.navi.current {
+  color: red;
+}
+
+ // @import "main";
+@import "{{ site.theme }}";

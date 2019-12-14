@@ -2,13 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>{{page.title}}</title>
-    <link rel="stylesheet" href={{"/assets/css/styles.css" | relative_url}}>
+    <link rel="stylesheet" href={{"/assets/css/style.css" | relative_url}}>
     {% feed_meta %}
     {% seo %}
   </head>
-  <body>
-    {% include navigation.html %}
+  <body style="font-size: 120%;">
+    <header class="head">
+      <a href="/">
+        <img src="/assets/images/ndifix_pic.jpg"　alt= "ホームボタン" class="home-btn"></a>
+        {% include navigation.html %}
+    </header>
+    
     {{content}}
+    
+    <footer>
+
+    </footer>
   </body>
 </html>
