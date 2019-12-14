@@ -28,7 +28,7 @@ twitter_username: ndifix
 github_username:  ndifix
 
 # Build settings
-theme: jekyll-theme-minimal
+theme: jekyll-theme-midnight
 plugins:
   - jekyll-feed
   - jekyll-sitemap
