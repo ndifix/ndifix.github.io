@@ -1,0 +1,25 @@
+--- 
+
+---
+.head{
+  height: 140px;
+  background-color: white;
+}
+.home-btn{
+  vertical-align: middle;
+  height: 90px;
+}
+.navi{
+  float: right;
+  margin-left: 20px;
+  margin-right: 40px;
+  height: inherit;
+  color: rgb(126, 114, 114);
+  font-size: 200%;
+}
+.navi:hover{
+  color: blue;
+}
+.navi.current {
+  color: red;
+}

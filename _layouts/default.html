@@ -8,14 +8,16 @@
     <meta name="author" content="">
     <title>{{page.title}}</title>
     <link rel="stylesheet" href={{"/assets/css/style.css" | relative_url}}>
+    <link rel="stylesheet" href={{"/assets/css/header.css" | relative_url}}>
     {% feed_meta %}
     {% seo %}
   </head>
-  <body style="font-size: 120%;">
+  <body style="font-size: 100%;">
     <header class="head">
       <a href="/">
-        <img src="/assets/images/ndifix_pic.jpg"　alt= "ホームボタン" class="home-btn"></a>
-        {% include navigation.html %}
+         <img src="/assets/images/ndifix_pic.jpg"　alt= "ホームボタン" class="home-btn">
+      </a>
+      {% include navigation.html %}
     </header>
     
     {{content}}

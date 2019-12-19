@@ -1,9 +1,7 @@
-<nav>
-  {% for item in site.data.navigation %} 
-    <a href="{{item.link}}"
+<nav style="height: 50px;overflow:hidden" >
+  {% for item in site.data.navigation %}<a href="{{item.link}}"
       {%if page.url == item.link%} class="navi current" {%endif%}
       {%if page.url != item.link%} class="navi" {%endif%}>
       {{item.name}}
-    </a>
-  {% endfor %}
+    </a>{% endfor %}
 </nav>
