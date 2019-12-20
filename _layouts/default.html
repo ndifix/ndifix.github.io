@@ -7,13 +7,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{{page.title}}</title>
-    <link rel="stylesheet" href={{"/assets/css/style.css" | relative_url}}>
     <link rel="stylesheet" href={{"/assets/css/header.css" | relative_url}}>
+    <link rel="stylesheet" href={{"/assets/css/footer.css" | relative_url}}>
+    <link rel="stylesheet" href={{"/assets/css/style.css" | relative_url}}>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
     {% feed_meta %}
     {% seo %}
   </head>
-  <body style="font-size: 100%;">
-    <header class="head">
+  <body style="background-color: black; margin: 0">
+    <header>
       <a href="/">
          <img src="/assets/images/ndifix_pic.jpg"　alt= "ホームボタン" class="home-btn">
       </a>
@@ -23,6 +25,20 @@
     {{content}}
     
     <footer>
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          <li><a href="https://github.com/ndifix">
+            <svg class="svg-icon">
+              <use xlink:href="/assets/images/minima-social-icons.svg#github"></use>
+            </svg>
+            <span class="username">ndifix</span>
+          </a></li>
+          <li><a href="https://www.twitter.com/ndifix">
+            <svg class="svg-icon">
+              <use xlink:href="/assets/images/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">ndifix</span>
+          </a></li>
+        </ul>
 
     </footer>
   </body>

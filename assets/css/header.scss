@@ -1,17 +1,20 @@
 --- 
-
----
-.head{
+--- 
+header{
   height: 140px;
+  width: 100%;
   background-color: white;
 }
 .home-btn{
   vertical-align: middle;
   height: 90px;
 }
+nav{
+  height: 50px;
+  overflow: hidden;
+}
 .navi{
   float: right;
-  margin-left: 20px;
   margin-right: 40px;
   height: inherit;
   color: rgb(126, 114, 114);
