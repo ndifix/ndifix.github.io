@@ -14,32 +14,13 @@
     {% feed_meta %}
     {% seo %}
   </head>
-  <body style="background-color: black; margin: 0">
-    <header>
-      <a href="/">
-         <img src="/assets/images/ndifix_pic.jpg"　alt= "ホームボタン" class="home-btn">
-      </a>
-      {% include navigation.html %}
-    </header>
-    
-    {{content}}
-    
-    <footer>
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          <li><a href="https://github.com/ndifix">
-            <svg class="svg-icon">
-              <use xlink:href="/assets/images/minima-social-icons.svg#github"></use>
-            </svg>
-            <span class="username">ndifix</span>
-          </a></li>
-          <li><a href="https://www.twitter.com/ndifix">
-            <svg class="svg-icon">
-              <use xlink:href="/assets/images/minima-social-icons.svg#twitter"></use>
-            </svg> <span class="username">ndifix</span>
-          </a></li>
-        </ul>
+  <body>
+    {%include header.html %}
 
-    </footer>
+    <main>
+      {{content}}
+    </main>
+
+    {%include footer.html %}
   </body>
 </html>
