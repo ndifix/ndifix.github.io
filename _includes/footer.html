@@ -13,5 +13,12 @@
         </svg> <span class="username">ndifix</span>
       </a></li>
     </ul>
+  </div>
 
+  <table class="footer-nav"><thead><tr>
+    {% for item in site.data.navigation %}<th class="footer-nav-content"><a href="{{item.link}}">
+      {{item.name}}
+  </a></th>{% endfor %}
+  </tr></thead>
+  </table>>
 </footer>

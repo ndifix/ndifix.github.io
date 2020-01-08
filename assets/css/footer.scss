@@ -6,7 +6,6 @@ footer{
   width: 100%;
   background-color: white;
   font-size: 120%;
-  position: relative;
   bottom: 0;
 }
 
@@ -19,3 +18,7 @@ footer{
   vertical-align: text-top;
 }
 .social-media-list li + li { padding-top: 5px; }
+
+.footer-nav{
+  display: none;
+}
