@@ -65,8 +65,8 @@ defaults:
       type: "posts"
     values:
       layout: post
-      author: ndifix 
-      categories: Blog
+      author: ndifix
+      excerpt_separator: <!--more-->
   - scope:
       path: ""
     values:
