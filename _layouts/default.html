@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
 
-<head>
+<head prefix="og: http://ogp.me/ns#">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -17,6 +17,14 @@
     <![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+
+  <meta name="og:url" content="{{ site.url }}">
+  <meta name="og:site_name" content="{{ site.title }}">
+  <meta name="og:description" content="{{ site.description }}">
+  <meta name="og:type" content="article">
+  <meta name="og:image" content="{{site.baseurl}}/assets/images/ndifix.png">
+  
+  {% include twitter-card.html %}
   {% include KaTeX.html %}
 </head>
 
