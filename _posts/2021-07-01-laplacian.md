@@ -1,12 +1,12 @@
 ---
 layout: post
 author: ndifix
-title: "ラプラシアンきらい"
+title: "ラプラシアンの座標変換"
 date: 2021-07-01 0:0:0
 categories: Mathematics
 ---
 
-もう二度とラプラシアンの座標変換をしたくないのでまとめておく。
+ラプラシアンの座標変換は好きですか？私は嫌いです。
 <!--more-->
 ## 2次元極座標の場合
 
@@ -108,6 +108,7 @@ categories: Mathematics
 				\frac{\partial}{\partial r}\\
 				\frac{\partial}{\partial \phi}
 			\end{array}\right)\\
+			&\;\;\;\;\;\; ↑ 積の微分なので。\\
 		=&
 			\left(\begin{array}{ll}
 				\frac{2}{r} - \frac{x_1^2+x_2^2}{r^3} &	0
