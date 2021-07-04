@@ -2,7 +2,7 @@
 layout: post
 author: ndifix
 title: "ラプラシアンの座標変換"
-date: 2021-07-05 0:0:0
+date: 2021-07-04 0:0:0
 categories: Mathematics
 ---
 
