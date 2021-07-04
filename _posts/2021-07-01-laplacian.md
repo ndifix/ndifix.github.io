@@ -308,3 +308,400 @@ categories: Mathematics
 		+\frac{1}{r^2\sin^2\theta}\frac{\partial^2}{\partial \phi^2}
 \end{aligned}
 {% endkatex %}
+
+せっかくなので一般化しておきます。
+## n次元球面座標のとき
+{% katex %}
+\begin{aligned}
+	x_1 &= r\cos\theta_1\\
+	x_2 &= r\sin\theta_1\cos\theta_2\\
+		&\vdots\\
+	x_k &= r\prod_{i=1}^{k-1}\sin\theta_i\cos\theta_{k}\\
+	x_{n-1} &= r\prod_{i=1}^{n-2}\sin\theta_i\cos\theta_{n-1}\\
+	x_n &= r\prod_{i=1}^{n-2}\sin\theta_i\sin\theta_{n-1}\\
+	r_k &= \sqrt{\sum_{i=k}^n x_i^2} \;\; とする。\\
+	このとき\\
+	x_1 &= r_1\cos\theta_1\\
+	x_2 &= r_2\cos\theta_2\\
+		&\vdots\\
+	x_k &= r_k\cos\theta_{k}\\
+	x_{n-1} &= r_{n-1}\cos\theta_{n-1}\\
+	x_n &= r_{n-1}\sin\theta_{n-1}\\
+	r_k &= r\prod_{i=1}^{k-1} \sin\theta_i \;\;(1\leq k<n)\\
+	であり\\
+	\frac{\partial r_i}{\partial x_j}
+		&=
+		\begin{cases}
+			x_j/r_i\;\; (i\leq j)\\
+			0\;\;\;\;\;\;\;\; (i>j)
+		\end{cases}\\
+	\\\\
+	i<n のとき\\
+	\frac{\partial x_i}{\partial x_j}
+		&= \frac{\partial r_i}{\partial x_j}\cos\theta_i - r_i\frac{\partial \theta_i}{\partial x_j}\sin\theta_i\\
+	i<n かつ i<j のとき\\
+	0	&= \frac{x_j}{r_i}\cos\theta_i - r_i\frac{\partial \theta_i}{\partial x_j}\sin\theta_i\\
+	\frac{\partial \theta_i}{\partial x_j}
+		&= \frac{x_j\cos\theta_i}{r_i^2\sin\theta_i}\\
+	i<n かつ i=j のとき\\
+	1 &= \frac{x_j}{r_i}\cos\theta_i - r_i\frac{\partial \theta_i}{\partial x_j}\sin\theta_i\\
+		%&= \frac{x_i}{r_i}\cos\theta_i - r_i\frac{\partial \theta_i}{\partial x_i}\sin\theta_i\\
+		&= \cos\theta^2_i - r_i\frac{\partial \theta_i}{\partial x_i}\sin\theta_i\\
+	\frac{\partial \theta_i}{\partial x_j} &= -\frac{\sin\theta_i}{r_i}\\
+	i<n かつ i>j のとき\\
+	0	&= 0\cdot \cos\theta_i - r_i\frac{\partial \theta_i}{\partial x_j}\sin\theta_i\\
+	\frac{\partial \theta_i}{\partial x_j} &= 0\\
+	\\
+	j<i=n のとき\\
+	\frac{\partial x_i}{\partial x_j}
+		&= \frac{\partial r_{n-1}}{\partial x_j}\sin\theta_{n-1} + r_{n-1}\frac{\partial \theta_{n-1}}{\partial x_j}\cos\theta_{n-1}\\
+	0 &= \delta_{j,n-1}\cdot \sin^2\theta_{n-1} + r_{n-1}\frac{\partial \theta_{n-1}}{\partial x_j}\cos\theta_{n-1}\\
+	\frac{\partial \theta_{n-1}}{\partial x_j} &= -\frac{\sin\theta_{n-1}}{r_{n-1}} \delta_{j,n-1}\\
+	j=i=n のとき\\
+	\frac{\partial x_i}{\partial x_j}
+		&= \frac{\partial r_{n-1}}{\partial x_{n-1}}\sin\theta_{n-1} + r_{n-1}\frac{\partial \theta_{n-1}}{\partial x_{n-1}}\cos\theta_{n-1}\\
+	1 &= \sin\theta^2_{n-1} + r_{n-1}\frac{\partial \theta_{n-1}}{\partial x_{n-1}}\cos\theta_{n-1}\\
+	\frac{\partial \theta_{n-1}}{\partial x_n} &= \frac{\cos\theta_{n-1}}{r_{n-1}}
+\end{aligned}
+{% endkatex %}
+
+{% katex %}
+よって\\
+\begin{aligned}
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial x_1}\\
+			\frac{\partial}{\partial x_2}\\
+			\frac{\partial}{\partial x_3}\\
+			\vdots\\
+			\frac{\partial}{\partial x_n}\\
+		\end{array}\right)
+	=&
+		\left(\begin{array}{clllc}
+			\frac{\partial r}{\partial x_1} & \frac{\partial \theta_1}{\partial x_1} & \frac{\partial \theta_2}{\partial x_1} & \cdots & \frac{\partial \theta_{n-1}}{\partial x_1}\\
+			\frac{\partial r}{\partial x_2} & \frac{\partial \theta_1}{\partial x_2} & \frac{\partial \theta_2}{\partial x_2} & \cdots & \frac{\partial \theta_{n-1}}{\partial x_2}\\
+			\vdots & & & \ddots & \vdots\\
+			\frac{\partial r}{\partial x_{n-1}} & \frac{\partial \theta_1}{\partial x_{n-1}} & \frac{\partial \theta_2}{\partial x_{n-1}} & \cdots & \frac{\partial \theta_{n-1}}{\partial x_{n-1}}\\
+			\frac{\partial r}{\partial x_n} & \frac{\partial \theta_1}{\partial x_n} & \frac{\partial \theta_2}{\partial x_n} & \cdots & \frac{\partial \theta_{n-1}}{\partial x_n}\\
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\frac{\partial}{\partial \theta_1}\\
+			\frac{\partial}{\partial \theta_2}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	=&
+		\left(\begin{array}{cccccc}
+			\frac{x_1}{r_1} & -\frac{\sin\theta_1}{r_1} & 0 &\cdots & 0 & 0\\
+			\frac{x_2}{r_1} & \frac{x_2\cos\theta_1}{r_1^2\sin\theta_1} & -\frac{\sin\theta_2}{r_2} & \cdots & 0 & 0\\
+			\vdots & & & \ddots & & \vdots\\
+			\frac{x_{n-1}}{r_1} & \frac{x_{n-1}\cos\theta_1}{r_1^2\sin\theta_1} & \frac{x_{n-1}\cos\theta_2}{r_2^2\sin\theta_2} & \cdots & \frac{x_{n-1}\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{\sin\theta_{n-1}}{r_{n-1}}\\
+			\frac{x_n}{r_1} & \frac{x_n\cos\theta_1}{r_1^2\sin\theta_1} & \frac{x_n\cos\theta_2}{r_2^2\sin\theta_2} & \cdots & \frac{x_n\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & \frac{\cos\theta{n-1}}{r_{n-1}}\\
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\frac{\partial}{\partial \theta_1}\\
+			\frac{\partial}{\partial \theta_2}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+\end{aligned}
+{% endkatex %}
+
+{% katex %}
+\begin{aligned}
+		\Delta_n
+	=&
+		\left(\begin{array}{lll}
+			\frac{\partial}{\partial x_1} &
+			\cdots &
+			\frac{\partial}{\partial x_n}
+		\end{array}\right)
+		\left(\begin{array}{l}
+			\frac{\partial}{\partial x_1}\\
+			\vdots\\
+			\frac{\partial}{\partial x_n}
+		\end{array}\right)\\
+	=&
+		\left(
+			\left(\begin{array}{lll}
+				\frac{\partial}{\partial x_1} &
+				\cdots &
+				\frac{\partial}{\partial x_n}
+			\end{array}\right)
+			\left(\begin{array}{ccccc}
+			\frac{x_1}{r_1} & -\frac{\sin\theta_1}{r_1}  &\cdots & 0 & 0\\
+			\frac{x_2}{r_1} & \frac{x_2\cos\theta_1}{r_1^2\sin\theta_1}  & \cdots & 0 & 0\\
+			\vdots & \vdots & \ddots & \vdots & \vdots\\
+			\frac{x_{n-1}}{r_1} & \frac{x_{n-1}\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & \frac{x_{n-1}\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{\sin\theta_{n-1}}{r_{n-1}}\\
+			\frac{x_n}{r_1} & \frac{x_n\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & \frac{x_n\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & \frac{\cos\theta{n-1}}{r_{n-1}}\\
+		\end{array}\right)
+		\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\frac{\partial}{\partial \theta_1}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	&+
+		\left(\begin{array}{ccccc}
+			\frac{x_1}{r_1} & -\frac{\sin\theta_1}{r_1}  &\cdots & 0 & 0\\
+			\frac{x_2}{r_1} & \frac{x_2\cos\theta_1}{r_1^2\sin\theta_1}  & \cdots & 0 & 0\\
+			\vdots & \vdots & \ddots & \vdots & \vdots\\
+			\frac{x_{n-1}}{r_1} & \frac{x_{n-1}\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & \frac{x_{n-1}\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{\sin\theta_{n-1}}{r_{n-1}}\\
+			\frac{x_n}{r_1} & \frac{x_n\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & \frac{x_n\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & \frac{\cos\theta{n-1}}{r_{n-1}}\\
+		\end{array}\right)^T
+		\left(\begin{array}{ccccc}
+			\frac{x_1}{r_1} & -\frac{\sin\theta_1}{r_1}  &\cdots & 0 & 0\\
+			\frac{x_2}{r_1} & \frac{x_2\cos\theta_1}{r_1^2\sin\theta_1}  & \cdots & 0 & 0\\
+			\vdots & \vdots & \ddots & \vdots & \vdots\\
+			\frac{x_{n-1}}{r_1} & \frac{x_{n-1}\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & \frac{x_{n-1}\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{\sin\theta_{n-1}}{r_{n-1}}\\
+			\frac{x_n}{r_1} & \frac{x_n\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & \frac{x_n\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & \frac{\cos\theta{n-1}}{r_{n-1}}\\
+		\end{array}\right)
+		\left(\begin{array}{lll}
+			\frac{\partial}{\partial r} &
+			\cdots &
+			\frac{\partial}{\partial \theta_{n-1}}
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	=&
+		\left(\begin{array}{c}
+			\frac{n-1}{r_1}\\
+			-\frac{\partial}{\partial x_1} \frac{\sin\theta_1}{r_1} + \sum_{i=2}^n \frac{\partial}{\partial x_i}\frac{x_i\cos\theta_1}{r_1^2\sin\theta_1}\\
+			\vdots\\
+			-\frac{\partial}{\partial x_k} \frac{\sin\theta_k}{r_k} + \sum_{i=k+1}^n \frac{\partial}{\partial x_i}\frac{x_i\cos\theta_k}{r_k^2\sin\theta_k}\\
+			\vdots\\
+			-\frac{\partial}{\partial x_{n-1}}\frac{\sin\theta_{n-1}}{r_{n-1}} + \sum_{i=n}^n \frac{\partial}{\partial x_i}\frac{x_i\cos\theta_{n-1}}{r_{n-1}^2\sin\theta_{n-1}}\\
+		\end{array}\right)^T
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_k}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	&+
+		\left(\begin{array}{cccc}
+			\frac{x_1}{r_1} & \frac{x_2}{r_1} &\cdots & \frac{x_n}{r_1}\\
+			-\frac{\sin\theta_1}{r_1} & \frac{x_2\cos\theta_1}{r_1^2\sin\theta_1} &\cdots & \frac{x_n\cos\theta_1}{r_1^2\sin\theta_1}\\
+			\vdots & \vdots & \ddots & \vdots\\
+			0 & 0 & \cdots  & \frac{x_n\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}}\\
+			0 & 0 & \cdots & \frac{\cos\theta_{n-1}}{r_{n-1}}\\
+		\end{array}\right)
+		\left(\begin{array}{ccccc}
+			\frac{x_1}{r_1} & -\frac{\sin\theta_1}{r_1}  &\cdots & 0 & 0\\
+			\frac{x_2}{r_1} & \frac{x_2\cos\theta_1}{r_1^2\sin\theta_1}  & \cdots & 0 & 0\\
+			\vdots & \vdots & \ddots & \vdots & \vdots\\
+			\frac{x_{n-1}}{r_1} & \frac{x_{n-1}\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & \frac{x_{n-1}\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{\sin\theta_{n-1}}{r_{n-1}}\\
+			\frac{x_n}{r_1} & \frac{x_n\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & \frac{x_n\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & \frac{\cos\theta{n-1}}{r_{n-1}}\\
+		\end{array}\right)
+		\left(\begin{array}{lll}
+			\frac{\partial}{\partial r} &
+			\cdots &
+			\frac{\partial}{\partial \theta_{n-1}}
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	=&
+		\left(\begin{array}{c}
+			\frac{n-1}{r_1}\\
+			\vdots\\
+			2\frac{\sin\theta_k\cos\theta_k}{r_k^2} + \sum_{i=k+1}^n \frac{1}{r_k^2\tan\theta_k}\left(1-2\frac{x_i^2}{r_k^2}-\frac{x_i^2}{r_k^2\sin^2\theta_k}\right)\\
+			\vdots\\
+		\end{array}\right)^T
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_k}\\
+			\vdots\\
+		\end{array}\right)\\
+	&+
+		\left(\begin{array}{ccccc}
+			1 & -\frac{x_1}{r_1}\frac{\sin\theta_1}{r_1}+\sum_{i=2}^n \frac{x_i}{r_1}\frac{x_i\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & -\frac{x_{n-2}}{r_1}\frac{\sin\theta_{n-2}}{r_{n-2}}+ \sum_{i=n-1}^n\frac{x_i}{r_1}\frac{x_i\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{x_{n-1}}{r_1}\frac{\sin\theta_{n-1}}{r_{n-1}}+ \sum_{i=n}^n\frac{x_i}{r_1}\frac{x_i\cos\theta_{n-1}}{r_{n-1}^2\sin\theta_{n-1}}\\
+			* & \frac{\sin^2\theta_1}{r_1^2} + \sum_{i=2}^n \frac{x_i^2\cos^2\theta_1}{r_1^4\sin^2\theta_1} & \cdots  & -\frac{x_{n-2}\cos\theta_1}{r_1^2\sin\theta_1}\frac{\sin\theta_{n-2}}{r_{n-2}}+\sum_{i=n-1}^n\frac{x_i\cos\theta_1}{r_1^2\sin\theta_1}\frac{x_i\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{x_{n-1}\cos\theta_1}{r_1^2\sin\theta_1}\frac{\sin\theta_{n-1}}{r_{n-1}}+ \sum_{i=n}^n\frac{x_i\cos\theta_1}{r_1^2\sin\theta_1}\frac{x_i\cos\theta_{n-1}}{r_{n-1}^2\sin\theta_{n-1}}\\
+			\vdots & \vdots & \ddots & \vdots &\vdots\\
+			* & * & \cdots & \frac{\sin^2\theta_{n-2}}{r_{n-2}^2}+\sum_{i=n-1}^n \frac{x_i^2\cos^2\theta_{n-2}}{r_{n-2}^4\sin^2\theta_{n-2}} & -\frac{x_{n-1}\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}}\frac{\sin\theta_{n-1}}{r_{n-1}}+ \sum_{i=n}^n\frac{x_i\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}}\frac{x_i\cos\theta_{n-1}}{r_{n-1}^2\sin\theta_{n-1}}\\
+			* & * & \cdots & * & \frac{\sin^2\theta_{n-1}}{r_{n-1}^2}+\sum_{i=n}^n \frac{x_i^2\cos^2\theta_{n-1}}{r_{n-1}^4\sin^2\theta_{n-1}}\\
+		\end{array}\right)
+		\left(\begin{array}{lll}
+			\frac{\partial}{\partial r} &
+			\cdots &
+			\frac{\partial}{\partial \theta_{n-1}}
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	=&
+		\left(\begin{array}{c}
+			\frac{n-1}{r_1}\\
+			\vdots\\
+			2\frac{\sin\theta_k\cos\theta_k}{r_k^2} + \frac{1}{r_k^2\tan\theta_k}\left((n-k)-2\frac{r_{k+1}^2}{r_k^2}-\frac{r_{k+1}^2}{r_k^2\sin^2\theta_k}\right)\\
+			\vdots\\
+		\end{array}\right)^T
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_k}\\
+			\vdots\\
+		\end{array}\right)\\
+	&+
+		\left(\begin{array}{ccccc}
+			1 & -\frac{1}{r_1}\frac{x_1\sin\theta_1}{r_1}+ \frac{1}{r_1}\frac{r_2^2\cos\theta_1}{r_1^2\sin\theta_1} & \cdots & -\frac{1}{r_1}\frac{x_{n-2}\sin\theta_{n-2}}{r_{n-2}}+ \frac{1}{r_1}\frac{r_{n-1}^2\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{1}{r_1}\frac{x_{n-1}\sin\theta_{n-1}}{r_{n-1}}+ \frac{1}{r_1}\frac{r_{n}^2\cos\theta_{n-1}}{r_{n-1}^2\sin\theta_{n-1}} \\
+			* & \frac{\sin^2\theta_1}{r_1^2} + \frac{r_2^2\cos^2\theta_1}{r_1^4\sin^2\theta_1} & \cdots  & -\frac{\cos\theta_1}{r_1^2\sin\theta_1}\frac{x_{n-2}\sin\theta_{n-2}}{r_{n-2}}+ \frac{\cos\theta_1}{r_1^2\sin\theta_1}\frac{r_{n-1}^2\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{\cos\theta_1}{r_1^2\sin\theta_1}\frac{x_{n-1}\sin\theta_{n-1}}{r_{n-1}}+\frac{\cos\theta_1}{r_1^2\sin\theta_1}\frac{r_{n}^2\cos\theta_{n-1}}{r_{n-1}^2\sin\theta_{n-1}}\\
+			* & * & \cdots & -\frac{\cos\theta_2}{r_2^2\sin\theta_2}\frac{x_{n-2}\sin\theta_{n-2}}{r_{n-2}}+ \frac{\cos\theta_2}{r_2^2\sin\theta_2}\frac{r_{n-1}^2\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} & -\frac{\cos\theta_1}{r_1^2\sin\theta_1}\frac{x_{n-1}\sin\theta_{n-1}}{r_{n-1}}+\frac{\cos\theta_1}{r_1^2\sin\theta_1}\frac{r_{n}^2\cos\theta_{n-1}}{r_{n-1}^2\sin\theta_{n-1}}\\
+			\vdots & \vdots & \ddots & \vdots &\vdots\\
+			* & * & \cdots & \frac{\sin^2\theta_{n-2}}{r_{n-2}^2}+ \frac{r_{n-1}^2\cos^2\theta_{n-2}}{r_{n-2}^4\sin^2\theta_{n-2}} & -\frac{\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}}\frac{x_{n-1}\sin\theta_{n-1}}{r_{n-1}} +\frac{\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}}\frac{r_{n}^2\cos\theta_{n-1}}{r_{n-1}^2\sin\theta_{n-1}}\\
+			* & * & \cdots & * & \frac{\sin^2\theta_{n-1}}{r_{n-1}^2}+ \frac{r_{n}^2\cos^2\theta_{n-1}}{r_{n-1}^4\sin^2\theta_{n-1}}\\
+		\end{array}\right)
+		\left(\begin{array}{lll}
+			\frac{\partial}{\partial r} &
+			\cdots &
+			\frac{\partial}{
+				\partial \theta_{n-1}}
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	=&
+		\left(\begin{array}{c}
+			\frac{n-1}{r_1}\\
+			\vdots\\
+			2\frac{\sin\theta_k\cos\theta_k}{r_k^2} + \frac{1}{r_k^2\tan\theta_k}\left((n-k)-2\sin^2\theta_k-1\right)\\
+			\vdots\\
+		\end{array}\right)^T
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_k}\\
+			\vdots\\
+		\end{array}\right)\\
+	&+
+		\left(\begin{array}{ccccc}
+			1 & -\frac{1}{r_1}\cos\theta_1\sin\theta_1+ \frac{1}{r_1}\cos\theta_1\sin\theta_1 & \cdots & -\frac{1}{r_1}\cos\theta_{n-2}\sin\theta_{n-2} +\frac{1}{r_1}\cos\theta_{n-2}\sin\theta_{n-2} & -\frac{1}{r_1}\cos\theta_{n-1}\sin\theta_{n-1}+\frac{1}{r_1}\cos\theta_{n-1}\sin\theta_{n-1} \\
+			* & \frac{\sin^2\theta_1}{r_1^2} + \frac{\cos^2\theta_1}{r_1^2} & \cdots  & -\frac{\cos\theta_1}{r_1^2\sin\theta_1} \cos\theta_{n-2}\sin\theta_{n-2}+ \frac{\cos\theta_1}{r_1^2\sin\theta_1}\cos\theta_{n-2}\sin\theta_{n-2} & -\frac{\cos\theta_1}{r_1^2\sin\theta_1} \cos\theta_{n-1}\sin\theta_{n-1}+ \frac{\cos\theta_1}{r_1^2\sin\theta_1}\cos\theta_{n-1}\sin\theta_{n-1}\\
+			* & * & \cdots & -\frac{\cos\theta_2}{r_2^2\sin\theta_2} \cos\theta_{n-2}\sin\theta_{n-2}+ \frac{\cos\theta_2}{r_2^2\sin\theta_2}\cos\theta_{n-2}\sin\theta_{n-2} & -\frac{\cos\theta_2}{r_2^2\sin\theta_2} \cos\theta_{n-1}\sin\theta_{n-1}+ \frac{\cos\theta_2}{r_2^2\sin\theta_2}\cos\theta_{n-1}\sin\theta_{n-1}\\
+			\vdots & \vdots & \ddots & \vdots &\vdots\\
+			* & * & \cdots & \frac{\sin^2\theta_{n-2}}{r_{n-2}^2}+ \frac{\cos^2\theta_{n-2}}{r_{n-2}^2} & -\frac{\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}} \cos\theta_{n-1}\sin\theta_{n-1}+ \frac{\cos\theta_{n-2}}{r_{n-2}^2\sin\theta_{n-2}}\cos\theta_{n-1}\sin\theta_{n-1}\\
+			* & * & \cdots & * & \frac{\sin^2\theta_{n-1}}{r_{n-1}^2}+ \frac{\cos^2\theta_{n-1}}{r_{n-1}^2}\\
+		\end{array}\right)
+		\left(\begin{array}{lll}
+			\frac{\partial}{\partial r} &
+			\cdots &
+			\frac{\partial}{
+				\partial \theta_{n-1}}
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	=&
+		\left(\begin{array}{c}
+			\frac{n-1}{r_1}\\
+			\vdots\\
+			\frac{n-k-1}{r_k^2\tan\theta_k}\\
+			\vdots\\
+		\end{array}\right)^T
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_k}\\
+			\vdots\\
+		\end{array}\right)\\
+	&+
+		\left(\begin{array}{ccccc}
+			1 & 0 & \cdots & 0 & 0 \\
+			0 & \frac{1}{r_1^2} & \cdots  & 0 & 0\\
+			\vdots & \vdots & \ddots & \vdots &\vdots\\
+			0 & 0 & \cdots & \frac{1}{r_{n-2}^2} & 0\\
+			0 & 0 & \cdots & 0 & \frac{1}{r_{n-1}^2}\\
+		\end{array}\right)
+		\left(\begin{array}{lll}
+			\frac{\partial}{\partial r} &
+			\cdots &
+			\frac{\partial}{
+				\partial \theta_{n-1}}
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+\end{aligned}
+{% endkatex %}
+
+{% katex %}
+まとめると、\\
+\begin{aligned}
+		\Delta_n
+	=&
+		\left(\begin{array}{c}
+			\frac{n-1}{r_1}\\
+			\vdots\\
+			\frac{n-k-1}{r_k^2\tan\theta_k}\\
+			\vdots\\
+			0 \\
+		\end{array}\right)^T
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_k}\\
+			\vdots\\
+		\end{array}\right)\\
+	&+
+		\left(\begin{array}{ccccc}
+			1 & 0 & \cdots & 0 & 0 \\
+			0 & \frac{1}{r_1^2} & \cdots  & 0 & 0\\
+			\vdots & \vdots & \ddots & \vdots &\vdots\\
+			0 & 0 & \cdots & \frac{1}{r_{n-2}^2} & 0\\
+			0 & 0 & \cdots & 0 & \frac{1}{r_{n-1}^2}\\
+		\end{array}\right)
+		\left(\begin{array}{lll}
+			\frac{\partial}{\partial r} &
+			\cdots &
+			\frac{\partial}{
+				\partial \theta_{n-1}}
+		\end{array}\right)
+		\left(\begin{array}{c}
+			\frac{\partial}{\partial r}\\
+			\vdots\\
+			\frac{\partial}{\partial \theta_{n-1}}\\
+		\end{array}\right)\\
+	=&
+		\frac{n-1}{r_1}\frac{\partial}{\partial r} + \sum_{i=1}^{n-1} \frac{n-i-1}{r_i^2\tan\theta_i}\frac{\partial}{\partial \theta_i}\\
+	&+
+		\frac{\partial^2}{\partial r^2} + \sum_{i=1}^{n-1} \frac{1}{r_i^2}\frac{\partial^2}{\partial \theta_i^2}\\
+	\Delta_n
+	=&
+		\frac{n-1}{r}\frac{\partial}{\partial r} + \sum_{i=1}^{n-1} \frac{1}{r^2\prod_{j=1}^{i-1}\sin^2\theta_j}\frac{n-i-1}{\tan\theta_i}\frac{\partial}{\partial \theta_i}\\
+	&+
+		\frac{\partial^2}{\partial r^2} + \sum_{i=1}^{n-1} \frac{1}{r^2\prod_{j=1}^{i-1}\sin^2\theta_j}\frac{\partial^2}{\partial \theta_i^2}\\
+\end{aligned}
+{% endkatex %}
+
+{% katex %}
+これに n=3 を代入すると\\
+\begin{aligned}
+	\Delta_3
+	=&
+		\frac{2}{r}\frac{\partial}{\partial r} + \sum_{i=1}^{2} \frac{1}{r^2\prod_{j=1}^{i-1}\sin^2\theta_j}\frac{3-i-1}{\tan\theta_i}\frac{\partial}{\partial \theta_i}\\
+	&+
+		\frac{\partial^2}{\partial r^2} + \sum_{i=1}^{2} \frac{1}{r^2\prod_{j=1}^{i-1}\sin^2\theta_j}\frac{\partial^2}{\partial \theta_i^2}\\
+	=&
+		\frac{2}{r}\frac{\partial}{\partial r} + \frac{1}{r^2}\frac{1}{\tan\theta_1}\frac{\partial}{\partial \theta_1}\\
+	&+
+		\frac{\partial^2}{\partial r^2} + \frac{1}{r^2}\frac{\partial^2}{\partial \theta_1^2} + \frac{1}{r^2\sin^2\theta_1}\frac{\partial^2}{\partial \theta_2^2}\\
+\end{aligned}\\
+と、期待通りの結果が確かめられた。
+{% endkatex %}
