@@ -2,12 +2,21 @@
 layout: post
 author: ndifix
 title: "ラプラシアンの座標変換"
-date: 2021-07-01 0:0:0
+date: 2021-07-05 0:0:0
 categories: Mathematics
 ---
 
-ラプラシアンの座標変換は好きですか？私は嫌いです。
+ラプラシアンの座標変換は好きですか？私は嫌いです。\\
+ググると腕力でねじ伏せてる導出ばかりが出てくるけど 自分はそれだと演算子を書くだけで30分くらいかかってしまうほど計算が遅いので何とかしたかった。\\
+「行列みたいなもの」を使えばこれを解決できることに気付いたので覚書き。「行列ではないけど対称性のある式をまとめて書いた何か」だと思えば読めるはず (多分)。
 <!--more-->
+- [2次元極座標の場合](#R2)
+- [3次元極座標の場合](#R3)
+- [n次元極座標の場合](#Rn)
+- [今後の課題](#task)
+
+<a id="markdown-R2" name="R2"></a>
+
 ## 2次元極座標の場合
 
 {% katex %}
@@ -136,6 +145,8 @@ categories: Mathematics
 			+	\frac{1}{r^2}\frac{\partial^2}{\partial \phi^2}
 	\end{aligned}
 {% endkatex %}
+
+<a id="markdown-R3" name="R3"></a>
 
 ## 3次元球面座標のとき
 {% katex %}
@@ -310,6 +321,8 @@ categories: Mathematics
 {% endkatex %}
 
 せっかくなので一般化しておきます。
+<a id="markdown-Rn" name="Rn"></a>
+
 ## n次元球面座標のとき
 {% katex %}
 \begin{aligned}
@@ -705,3 +718,9 @@ categories: Mathematics
 \end{aligned}\\
 と、期待通りの結果が確かめられた。
 {% endkatex %}
+
+<a id="markdown-task" name="task"></a>
+## 今後の課題
+- ヤコビアンが"積" によって必ず対角化されるようなのがなぜなのか理解すること
+- もっと"奇妙な" 座標系についても考えてみること
+- もっと行列らしくなくて confusing ではない記法を考えること
