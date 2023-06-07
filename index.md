@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: ndifixの落書き帳
 ---
 <p>
@@ -11,6 +11,5 @@ title: ndifixの落書き帳
 </p>
 
 <p>
-  おっとこんなところに
-  <a href="https://www.amazon.jp/hz/wishlist/ls/1SEMOUO7GTQDY?ref_=wl_share">欲しいものリスト</a>が
+  <a href="https://www.amazon.jp/hz/wishlist/ls/1SEMOUO7GTQDY?ref_=wl_share">欲しいものリスト</a>
 </p>

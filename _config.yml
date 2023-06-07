@@ -29,7 +29,8 @@ github_username:  ndifix
 repository: ndifix/ndifix.github.io
 
 # Build settings
-theme: jekyll-theme-midnight
+markdown: kramdown
+theme: minima
 plugins:
   - jekyll-feed
 
