@@ -19,7 +19,7 @@ categories: Mathematics
 
 ## 2次元極座標の場合
 
-{% katex %}
+$$
 \begin{aligned}
 	x_1 &= r\cos \phi\\
 	x_2 &= r\sin \phi\;\; とすると\\
@@ -35,11 +35,11 @@ categories: Mathematics
 	\therefore \frac{\partial \phi}{\partial x_2} &= \frac{\cos\phi}{r}
 		= \frac{x_1}{r^2}\\
 \end{aligned}
-{% endkatex %}
+$$
 
 まとめると
 
-{% katex %}
+$$
 \begin{aligned}
 		\left(\begin{array}{l}
 			\frac{\partial}{\partial x_1}\\
@@ -73,9 +73,9 @@ categories: Mathematics
 			\frac{\partial}{\partial \phi}
 		\end{array}\right)\\
 \end{aligned}
-{% endkatex %}
+$$
 
-{% katex %}
+$$
 	\begin{aligned}
 			\frac{\partial^2}{\partial x_1^2} + \frac{\partial^2}{\partial x_2^2}
 		=&
@@ -144,12 +144,12 @@ categories: Mathematics
 			+ \frac{\partial^2}{\partial r^2}
 			+	\frac{1}{r^2}\frac{\partial^2}{\partial \phi^2}
 	\end{aligned}
-{% endkatex %}
+$$
 
 <a id="markdown-R3" name="R3"></a>
 
 ## 3次元球面座標のとき
-{% katex %}
+$$
 \begin{aligned}
 	x_1 &= r\sin\theta\cos\phi\\
 	x_2 &= r\sin\theta\sin\phi\\
@@ -184,11 +184,11 @@ categories: Mathematics
 	\\
 	\frac{\partial \phi}{\partial x_3} &=0
 \end{aligned}
-{% endkatex %}
+$$
 
 まとめると
 
-{% katex %}
+$$
 \begin{aligned}
 		\left(\begin{array}{l}
 			\frac{\partial}{\partial x_1}\\
@@ -229,9 +229,9 @@ categories: Mathematics
 			\frac{\partial}{\partial \phi}
 		\end{array}\right)\\
 \end{aligned}
-{% endkatex %}
+$$
 
-{% katex %}
+$$
 \begin{aligned}
 		\Delta
 	=&
@@ -318,13 +318,13 @@ categories: Mathematics
 		+\frac{1}{r^2}\frac{\partial^2}{\partial \theta^2}
 		+\frac{1}{r^2\sin^2\theta}\frac{\partial^2}{\partial \phi^2}
 \end{aligned}
-{% endkatex %}
+$$
 
 せっかくなので一般化しておきます。
 <a id="markdown-Rn" name="Rn"></a>
 
 ## n次元球面座標のとき
-{% katex %}
+$$
 \begin{aligned}
 	x_1 &= r\cos\theta_1\\
 	x_2 &= r\sin\theta_1\cos\theta_2\\
@@ -376,9 +376,9 @@ categories: Mathematics
 	1 &= \sin\theta^2_{n-1} + r_{n-1}\frac{\partial \theta_{n-1}}{\partial x_{n-1}}\cos\theta_{n-1}\\
 	\frac{\partial \theta_{n-1}}{\partial x_n} &= \frac{\cos\theta_{n-1}}{r_{n-1}}
 \end{aligned}
-{% endkatex %}
+$$
 
-{% katex %}
+$$
 よって\\
 \begin{aligned}
 		\left(\begin{array}{c}
@@ -419,9 +419,9 @@ categories: Mathematics
 			\frac{\partial}{\partial \theta_{n-1}}\\
 		\end{array}\right)\\
 \end{aligned}
-{% endkatex %}
+$$
 
-{% katex %}
+$$
 \begin{aligned}
 		\Delta_n
 	=&
@@ -652,9 +652,9 @@ categories: Mathematics
 			\frac{\partial}{\partial \theta_{n-1}}\\
 		\end{array}\right)\\
 \end{aligned}
-{% endkatex %}
+$$
 
-{% katex %}
+$$
 まとめると、\\
 \begin{aligned}
 		\Delta_n
@@ -701,9 +701,9 @@ categories: Mathematics
 	&+
 		\frac{\partial^2}{\partial r^2} + \sum_{i=1}^{n-1} \frac{1}{r^2\prod_{j=1}^{i-1}\sin^2\theta_j}\frac{\partial^2}{\partial \theta_i^2}\\
 \end{aligned}
-{% endkatex %}
+$$
 
-{% katex %}
+$$
 これに n=3 を代入すると\\
 \begin{aligned}
 	\Delta_3
@@ -717,7 +717,7 @@ categories: Mathematics
 		\frac{\partial^2}{\partial r^2} + \frac{1}{r^2}\frac{\partial^2}{\partial \theta_1^2} + \frac{1}{r^2\sin^2\theta_1}\frac{\partial^2}{\partial \theta_2^2}\\
 \end{aligned}\\
 と、期待通りの結果が確かめられた。
-{% endkatex %}
+$$
 
 <a id="markdown-task" name="task"></a>
 ## 今後の課題
